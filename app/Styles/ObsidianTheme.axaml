@@ -1,0 +1,43 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+    <Style Selector="Button.appButton">
+        <Setter Property="Background" Value="#5B4965"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="MinHeight" Value="28"/>
+        <Setter Property="Margin" Value="10 5 0 5"/>
+        <Setter Property="FontFamily" Value="{DynamicResource AveriaRegular}"/>
+    </Style>
+    <Style Selector="StackPanel.ButtonsBar">
+        <Setter Property="Background" Value="#372F43"/>
+        <Setter Property="Width" Value="1920"/>
+        <Setter Property="MinHeight" Value="38"/>
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+    </Style>
+    <Style Selector="Grid.EditorArea">
+        <Setter Property="Background" Value="#3D354B"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+    </Style>
+    <Style Selector="TextBox.TextEditor">
+        <Setter Property="Background" Value="#71627A"/>
+        <Setter Property="Margin" Value="20"/>
+        <Setter Property="AcceptsReturn" Value="True"/>
+        <Setter Property="AcceptsTab" Value="True"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontFamily" Value="{DynamicResource AveriaRegular}"/>
+    </Style>
+</Styles>

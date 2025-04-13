@@ -1,0 +1,26 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="app.App"
+             xmlns:local="using:app"
+             RequestedThemeVariant="Dark">
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+  
+    <Application.Styles>
+        <FluentTheme/>
+        <StyleInclude Source="Styles/ObsidianTheme.axaml" />
+    </Application.Styles>
+    <Application.Resources>
+        <FontFamily x:Key="AveriaRegular">
+            avares://HardoPad/Assets/Fonts/AveriaSerifLibre/AveriaSerifLibre-Regular.ttf#Averia Serif Libre
+        </FontFamily>
+        <FontFamily x:Key="AveriaBold">
+            avares://HardoPad/Assets/Fonts/AveriaSerifLibre/AveriaSerifLibre-Bold.ttf#Averia Serif Libre
+        </FontFamily>
+        <FontFamily x:Key="AveriaBoldItalic">
+            avares://HardoPad/Assets/Fonts/AveriaSerifLibre/AveriaSerifLibre-BoldItalic.ttf#Averia Serif Libre
+        </FontFamily>
+    </Application.Resources>
+</Application>

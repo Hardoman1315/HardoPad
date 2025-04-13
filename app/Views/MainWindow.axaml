@@ -1,0 +1,38 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:app.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="1980" d:DesignHeight="1080"
+        x:Class="app.Views.MainWindow"
+        x:DataType="viewModels:MainWindowViewModel"
+        Icon="/Assets/HardoPad.ico"
+        Title="HardoPad">
+    
+    
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Button panel -->
+        
+        <StackPanel Grid.Row="0" Classes="ButtonsBar">
+            <Button Classes="appButton" Click="Open">Open</Button>
+            <Button Classes="appButton" Click="Save">Save</Button>
+            <Button Classes="appButton" Click="SaveAs">Save as</Button>
+        </StackPanel>
+        
+        <!-- Text area -->
+        
+        <Grid Grid.Row="1" Classes="EditorArea">
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                <TextBox Classes="TextEditor" x:Name="textArea"/>
+            </ScrollViewer>
+        </Grid>
+        
+    </Grid>
+
+</Window>
