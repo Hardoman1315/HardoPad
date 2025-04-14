@@ -20,9 +20,9 @@
         <!-- Button panel -->
         
         <StackPanel Grid.Row="0" Classes="ButtonsBar">
-            <Button Classes="appButton" Click="Open">Open</Button>
-            <Button Classes="appButton" Click="Save">Save</Button>
-            <Button Classes="appButton" Click="SaveAs">Save as</Button>
+            <Button Classes="appButton" Click="Open" HotKey="Ctrl+O">Open</Button>
+            <Button Classes="appButton" Click="Save" HotKey="Ctrl+S">Save</Button>
+            <Button Classes="appButton" Click="SaveAs" HotKey="Ctrl+Shift+S">Save as</Button>
         </StackPanel>
         
         <!-- Text area -->

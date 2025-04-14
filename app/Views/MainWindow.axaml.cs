@@ -50,28 +50,46 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        
+        string traceID = Guid.NewGuid().ToString();
+        
+        SupportMethods.LogData("Info", traceID, 
+            "[Initialization] Starting the application", true);
     }
     
     private async void Open(object? sender, RoutedEventArgs e)
     {
+        string traceID = Guid.NewGuid().ToString();
+        
         var storage = StorageProvider;
         var fileToRead = await storage.OpenFilePickerAsync(fileOpenOptions);
-
+        
         if (fileToRead is { Count: > 0 })
         {
+            SupportMethods.LogData("Info", traceID, 
+                $"[Open] Path to file: {fileToRead[0].Path.LocalPath}");
+            
             fileToWrite = fileToRead[0];
             await using var stream = await fileToRead[0].OpenReadAsync();
             using var reader = new StreamReader(stream);
         
             textArea.Text = await reader.ReadToEndAsync();
         }
+        else
+        {
+            SupportMethods.LogData("Warning", traceID, 
+                $"[Open] File to read was not selected");
+        }
     }
-
+    
     private async void Save(object? sender, RoutedEventArgs e)
     {
+        string traceID = Guid.NewGuid().ToString();
+        
         if (fileToWrite != null && textArea.Text != null)
         {
-            Console.WriteLine($"Save path: {fileToWrite.Path.LocalPath}");
+            SupportMethods.LogData("Info", traceID, 
+                $"[Save] Path to file: {fileToWrite.Path.LocalPath}");
             
             await using var stream = await fileToWrite.OpenWriteAsync();
             await using var writer = new StreamWriter(stream);
@@ -79,24 +97,28 @@ public partial class MainWindow : Window
         }
         else if (fileToWrite == null && textArea.Text != null)
         {
+            SupportMethods.LogData("Info", traceID, 
+                "[Save] Current file have no path to save. Invoking 'SaveAs'");
             SaveAs(sender, e);
         }
-        else
+        else if (fileToWrite != null && textArea.Text == null)
         {
-            Console.WriteLine("Text block have no data");
+            SupportMethods.LogData("Warning", traceID, 
+                "[Save] Current file have no data");
         }
     }
     
     private async void SaveAs(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Output is fine :)");
+        string traceID = Guid.NewGuid().ToString();
         
         var storage = StorageProvider;
         fileToWrite = await storage.SaveFilePickerAsync(fileSaveOptions);
-
+    
         if (fileToWrite != null && textArea.Text != null)
         {
-            Console.WriteLine($"Save path: {fileToWrite.Path.LocalPath}");
+            SupportMethods.LogData("Info", traceID, 
+                $"[SaveAs] Path to file: {fileToWrite.Path.LocalPath}");
             
             await using var stream = await fileToWrite.OpenWriteAsync();
             await using var writer = new StreamWriter(stream);
@@ -104,7 +126,8 @@ public partial class MainWindow : Window
         }
         else
         {
-            Console.WriteLine("Save path is empty");
+            SupportMethods.LogData("Warning", traceID, 
+                "[SaveAs] Current file have no path to save");
         }
     }
 }

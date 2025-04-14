@@ -9,7 +9,7 @@
 		<AssemblyName>HardoPad</AssemblyName>
 		<ApplicationIcon>Assets\HardoPad.ico</ApplicationIcon>
 		<Company>Hardoman</Company>
-		<AssemblyVersion>0.0.0.1</AssemblyVersion>
+		<AssemblyVersion>0.0.0.2</AssemblyVersion>
     </PropertyGroup>
 
     <ItemGroup>
